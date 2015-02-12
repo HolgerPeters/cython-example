@@ -14,6 +14,12 @@ extensions = [
         Extension("*", ["c_bar.pyx"],
             extra_link_args=["../a_lib/foo.o"]),
         Extension("*", ["c_misc.pyx"]),
+        Extension("*", ["c_from.pyx"],
+            include_dirs=[os.path.abspath("../a_lib")],
+            extra_link_args=["../a_lib/foo.o"]),
+        Extension("*", ["c_from_user.pyx"],
+            include_dirs=[os.path.abspath("../a_lib")],
+            ),
         Extension("*", ["c_with_ptrs.pyx"],
             extra_link_args=["../a_lib/foo.o"]),
         ]

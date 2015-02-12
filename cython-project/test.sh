@@ -51,3 +51,13 @@ if [ $RESULT  -eq 0 ]; then
 else
 	echo "FAILURE"
 fi
+
+echo "======================== c_from "
+echo "Invoke from statically linked c_from, invocation by c_from_user"
+python -c "import c_from_user; c_from_user.useit()"
+RESULT=$?
+if [ $RESULT  -eq 0 ]; then
+	echo "SUCCESS"
+else
+	echo "FAILURE"
+fi
