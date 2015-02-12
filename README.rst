@@ -11,3 +11,17 @@ To compile and test::
    make
    cd ../cython-project
    bash test.sh
+
+Insights
+--------
+
+- ``LD_LIBRARY_PATH`` issues make dynamic linking a bad experience when you do
+  not want to install the non-cython shared library in ``/usr/lib`` or other
+  system folders.
+- Statically linking object files of that library into your cython library does
+  work, however these symbols cannot be interfaced by other libraries with
+  ``cimport`` as one would expect.
+- Workable solution: PXD-exported function pointers are interfaceable by other
+  cython modules and ``cimport`` works. This means that the implementation of
+  the wrapper has to feature lots of assignments and new function names have to
+  be devised.
