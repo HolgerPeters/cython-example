@@ -22,6 +22,11 @@ extensions = [
             ),
         Extension("*", ["c_with_ptrs.pyx"],
             extra_link_args=["../a_lib/foo.o"]),
+        Extension("*", ["c_from_with_direct_compilation.pyx",
+                        "../a_lib/foo.c"],
+            include_dirs=[os.path.abspath("../a_lib")]),
+        Extension("*", ["c_from_with_direct_compilation_user.pyx"],
+            include_dirs=[os.path.abspath("../a_lib")])
         ]
 
 setup(name='cython-test-project',
