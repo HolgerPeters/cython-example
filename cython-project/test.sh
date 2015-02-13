@@ -62,7 +62,7 @@ else
 	echo "FAILURE"
 fi
 
-echo "======================== c_from_w/_direct_comp  "
+echo "======================== c_from_w/_direct_comp, interfacing fails (why?)  "
 echo "Invoke from statically linked c_from_with_direct_compilation, invocation by c_from_with_direct_compilation_user"
 python -c "import c_from_with_direct_compilation_user; c_from_with_direct_compilation_user.useit()"
 RESULT=$?
