@@ -71,3 +71,13 @@ if [ $RESULT  -eq 0 ]; then
 else
 	echo "FAILURE"
 fi
+
+echo "======================== c_from_w/_direct_comp  "
+echo "Invoke from statically linked c_from_with_direct_compilation"
+python -c "import c_from_with_direct_compilation; c_from_with_direct_compilation.useit()"
+RESULT=$?
+if [ $RESULT  -eq 0 ]; then
+	echo "SUCCESS"
+else
+	echo "FAILURE"
+fi
