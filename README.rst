@@ -26,11 +26,11 @@ Insights
 
   .. code-block:: python
 
-     cdef return 42():
+     cdef return_42():
          return 42
 
-  is name mangled to :func:`__pyx_f_6c_from_return_42` for example when defined
-  in the pyx.
+  is name mangled to ``__pyx_f_6c_from_return_42`` for example when defined in
+  the pyx.
 
 - Workable solution: PXD-exported function pointers are interfaceable by other
   cython modules and ``cimport`` works. This means that the implementation of
