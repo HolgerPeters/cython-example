@@ -20,7 +20,18 @@ Insights
   system folders.
 - Statically linking object files of that library into your cython library does
   work, however these symbols cannot be interfaced by other libraries with
-  ``cimport`` as one would expect.
+  ``cimport`` as one would expect. The underlying reason for this is, that
+  extern function declarations keep the original name (as in C), in contrast,
+  Cython-cdef-functions are name-mangled.
+
+  .. code-block:: python
+
+     cdef return 42():
+         return 42
+
+  is name mangled to :func:`__pyx_f_6c_from_return_42` for example when defined
+  in the pyx.
+
 - Workable solution: PXD-exported function pointers are interfaceable by other
   cython modules and ``cimport`` works. This means that the implementation of
   the wrapper has to feature lots of assignments and new function names have to
