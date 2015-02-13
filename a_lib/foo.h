@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-extern int clib_return_3(int );
+int clib_return_3(int );
 
 #ifdef __cplusplus
 }
